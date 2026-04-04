@@ -13,7 +13,7 @@ An AI agent that turns every patient intake conversation into a validated clinic
 
 ## Regulatory Tailwind: European Health Data Space (EHDS)
 
-On March 15, 2024, the European Health Data Space (EHDS) was agreed in the EU trilogue procedure. It is expected to become binding law across all 27 EU member states by 2026 — the market this creates is opening right now.
+On 15 March 2024, the EU institutions reached a provisional political agreement on the European Health Data Space (EHDS) in trilogue. The European Parliament voted the agreed text on 24 April 2024, and the Council formally adopted it on 21 January 2025. The regulation — **Regulation (EU) 2025/327** — was published in the Official Journal and entered into force in **March 2025**. Implementation is staged: key implementing acts are due by March 2027, with major provisions for EHR systems and primary care applying from March 2029. The market this creates is already open.
 
 As the first domain-specific regulation of its kind, the EHDS actively promotes the secondary use of already collected health data for AI applications. Through an opt-out procedure or sovereign consent, health data from more than **450 million European citizens** can become available for use. A basic prerequisite for any use of such data is that it must be processed in **secure processing environments**, as defined in Article 50 of the EHDS.
 
