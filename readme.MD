@@ -7,7 +7,21 @@ An AI agent that turns every patient intake conversation into a validated clinic
 * **Theme:** Building High-Value Health Systems: Leveraging Artificial Intelligence
 * **Dates:** April 10–11
 * **Location:** Maria Zambrano Library
-* **Team Size:** 3 people
+* **Team Size:** 4 people (3 engineers + 1 sales)
+
+---
+
+## Regulatory Tailwind: European Health Data Space (EHDS)
+
+On March 15, 2024, the European Health Data Space (EHDS) was agreed in the EU trilogue procedure. It is expected to become binding law across all 27 EU member states by 2026 — the market this creates is opening right now.
+
+As the first domain-specific regulation of its kind, the EHDS actively promotes the secondary use of already collected health data for AI applications. Through an opt-out procedure or sovereign consent, health data from more than **450 million European citizens** can become available for use. A basic prerequisite for any use of such data is that it must be processed in **secure processing environments**, as defined in Article 50 of the EHDS.
+
+**MedFlow is an Article 50-compliant secure processing environment by design — not retrofitted compliance, purpose-built for the regulation.**
+
+Organizations seeking to use health data within the EHDS — including pharmaceutical companies, medical technology companies, insurers, and research institutes — face regulatory, technical, and organizational barriers. Existing business models validated through academic research include pay-for-performance (P4P) for pharmaceutical companies in collaborative data use with health insurers for reimbursement-related purposes. MedFlow's architecture is designed to support exactly these models at scale.
+
+> "We're not building ahead of the market. The EU just legislated this market into existence."
 
 ---
 
@@ -15,9 +29,9 @@ An AI agent that turns every patient intake conversation into a validated clinic
 
 Clinical intake is manual, slow, and error-prone. Patients repeat the same information multiple times. The resulting data lives in silos — clinical systems can't share it, and research teams can't access it because of privacy constraints. Anonymizing data for research is expensive and done ad hoc.
 
-Billions of clinical encounters generate data that is effectively lost to research. Manual intake creates bottlenecks in every hospital. Poor data quality propagates downstream into clinical decisions.
+Billions of clinical encounters generate data that is effectively lost to research. Manual intake creates bottlenecks in every hospital. Poor data quality propagates downstream into clinical decisions. And with EHDS becoming binding law in 2026, hospitals now face a legal obligation to enable compliant secondary data use — without the infrastructure to do it.
 
-**Hospitals are drowning in forms while researchers are starving for data.**
+**Hospitals are drowning in forms while researchers are starving for data. EHDS mandates a solution. The infrastructure doesn't exist yet.**
 
 ---
 
@@ -172,6 +186,48 @@ During the pitch, show a record with a deliberately leaked phone number. The com
 
 ---
 
+## Business Model
+
+MedFlow's model flips the traditional dynamic: **hospitals do not pay — they get paid.**
+
+### How It Works
+
+| Layer | Who | What |
+| --- | --- | --- |
+| **Free intake software** | Hospitals | MedFlow provides the AI intake agent at no cost in exchange for contributing anonymized records to the shared research database |
+| **Revenue share** | Hospitals | Hospitals receive a share of revenue generated from queries against their anonymized data |
+| **Research DB access** | Pharma, biotech, research institutes, public health agencies | Pay-per-query or subscription access to the compliance-certified, multi-hospital anonymized database |
+| **P4P models** | Pharma + insurers | Pay-for-performance arrangements for reimbursement-related collaborative data use, as validated in existing EHDS research |
+| **SaaS premium tier** | Hospitals (optional) | Advanced analytics dashboard, EHR integration, custom compliance reports for regulators |
+
+### Why Hospitals Say Yes
+
+They get two things they don't have today:
+1. **Free intake automation** — staff time savings, fewer errors, better data quality, reduced compliance risk
+2. **A new passive revenue stream** from data they were already generating but couldn't legally monetize
+
+The EHDS creates the legal framework that makes the revenue share possible. MedFlow provides the technical infrastructure that makes it compliant.
+
+### The Paying Customers
+
+Pharmaceutical companies, biotech firms, academic research institutions, and public health agencies need EHDS-compliant access to real-world health data. They face high regulatory, technical, and organizational barriers to accessing it independently. MedFlow removes those barriers and charges for the access.
+
+This is the proven playbook: Flatiron Health aggregated oncology records from hospitals, monetized access to pharma, and was acquired by Roche for $1.9B.
+
+---
+
+## Madrid Hub Alignment
+
+MedFlow addresses three of the four Madrid Hub challenge areas:
+
+**Hospital care (primary):** MedFlow directly transforms the hospital intake process — the entry point of every clinical encounter. Faster, structured, lower-error intake improves care quality and reduces administrative burden across every hospital department.
+
+**Public health in urban environments:** When MedFlow scales across Madrid hospitals, the anonymized research database becomes a real-time population health surveillance layer for the city. Outbreak patterns, chronic disease prevalence by district, and the health impact of urban pollution on respiratory admissions all become automatically detectable — from data that was always being generated but never accessible.
+
+**Emergency management:** The intake form is explicitly designed for *urgencias* (emergency) workflows. Structured AI-assisted triage in emergency settings accelerates time-to-treatment and produces better-quality clinical records under pressure.
+
+---
+
 ## What Makes MedFlow Different
 
 * **Anonymization-first, not anonymization-after:** PII is stripped before any data hits persistent storage. There is no database of raw patient records to breach.
@@ -181,7 +237,7 @@ During the pitch, show a record with a deliberately leaked phone number. The com
 * **Audit trail as a feature:** Every compliance decision is logged. Institutions can prove to regulators exactly what was checked, when, and what the result was.
 * **Research as a byproduct:** Every patient intake conversation automatically produces a compliance-certified research datapoint. No separate data collection effort needed.
 
-**Pitch angle:** "Hospitals generate data every day that could advance research — but it's locked behind forms and privacy barriers. MedFlow unlocks it automatically, with compliance you can prove. No raw patient data is ever stored."
+**Pitch angle:** "In March 2024, the EU agreed the European Health Data Space — binding law by 2026. It mandates secure processing environments for health data secondary use and unlocks 450 million patient records for AI research. MedFlow is the infrastructure layer EHDS requires. Every hospital intake becomes a compliance-certified research record, automatically. Hospitals get free intake automation and a new revenue stream. Researchers get compliant data. The regulation created the market. We built the infrastructure."
 
 ---
 
@@ -192,12 +248,14 @@ During the pitch, show a record with a deliberately leaked phone number. The com
 | TBD  | DevOps / Platform Engineering | Infrastructure, CI/CD, cloud, pipelines | Data pipeline & anonymization engine | Full both days |
 | TBD  | Software / Solutions Architecture | Backend APIs, system design, LLM integrations | AI agent & eval framework | Full both days |
 | TBD  | Systems / Software Engineering | Frontend, dashboards, demo tooling | Demo UI & pitch | Full both days |
+| TBD  | Sales / Business Development | Go-to-market, hospital and pharma partnerships, EHDS regulatory context | Business model, pitch narrative, stakeholder mapping | Full both days |
 
 ### Roles
 
 * **Person 1 (Platform / DevOps):** Data pipeline owner — anonymization engine, compliance gate, quarantine logic, audit trail, database schema, infrastructure.
 * **Person 2 (Solutions Architect):** AI agent owner — LLM integration, structured output, confidence scoring, supervised judge training/setup, eval framework.
 * **Person 3 (Systems Engineer):** Demo owner — patient chat UI, clinician dashboard, compliance status panel, audit trail viewer, research DB explorer, pitch deck.
+* **Person 4 (Sales / BD):** Business model owner — hospital and pharma go-to-market strategy, EHDS regulatory narrative, stakeholder mapping, pitch delivery.
 
 ### Workstreams
 
@@ -211,7 +269,9 @@ During the pitch, show a record with a deliberately leaked phone number. The com
 | Audit trail | Person 1 | Person 2 | Immutable log, quarantine logic |
 | Product / UX | Person 3 | — | Chat UI, dashboard, compliance panel, research explorer |
 | Front-end prototype | Person 3 | Person 2 | React or HTML |
-| Pitch deck | Person 3 | All | Architecture diagram, demo script, impact story |
+| Business model & EHDS narrative | Person 4 | All | Hospital + pharma go-to-market, regulatory context |
+| Stakeholder & market mapping | Person 4 | — | Hospital procurement, pharma buyers, EHDS timelines |
+| Pitch deck | Person 3 | Person 4 | Architecture diagram, demo script, impact story, business model slide |
 | Final presentation | All | — | Practice run evening of Day 1 |
 
 ---
