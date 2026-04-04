@@ -17,6 +17,8 @@ On 15 March 2024, the EU institutions reached a provisional political agreement 
 
 As the first domain-specific regulation of its kind, the EHDS actively promotes the secondary use of already collected health data for AI applications. Through an opt-out procedure or sovereign consent, health data from more than **450 million European citizens** can become available for use. A basic prerequisite for any use of such data is that it must be processed in **secure processing environments**, as defined in Article 50 of the EHDS.
 
+EHDS creates EU-wide rights for individuals to control their health data, obligations for hospitals and EHR vendors to meet interoperability standards, and a controlled-access framework for approved secondary use in research, public health, and regulatory work — generating compliance, certification, and data-infrastructure demand across all 27 member states.
+
 **MedFlow is an Article 50-compliant secure processing environment by design — not retrofitted compliance, purpose-built for the regulation.**
 
 Organizations seeking to use health data within the EHDS — including pharmaceutical companies, medical technology companies, insurers, and research institutes — face regulatory, technical, and organizational barriers. Existing business models validated through academic research include pay-for-performance (P4P) for pharmaceutical companies in collaborative data use with health insurers for reimbursement-related purposes. MedFlow's architecture is designed to support exactly these models at scale.
