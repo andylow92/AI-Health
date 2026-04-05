@@ -42,7 +42,7 @@ A compliance gate validates every anonymized record before it enters the researc
 
 ## Business Model
 
-MedFlow flips the traditional dynamic: **hospitals do not pay — they get paid.**
+MedFlow flips the traditional dynamic: **the core platform is free for hospitals — they earn revenue from day one. Premium tiers are available for hospitals wanting deeper integration.**
 
 | Layer | Customer | Value |
 | --- | --- | --- |
@@ -58,6 +58,40 @@ MedFlow flips the traditional dynamic: **hospitals do not pay — they get paid.
 2. **A new passive revenue stream** from data they were already generating but couldn't legally monetize
 
 The EHDS creates the legal framework. MedFlow provides the technical infrastructure.
+
+### ROI for Hospitals
+
+MedFlow delivers measurable value from day one — even on the free tier.
+
+**Example: mid-size Spanish hospital (~15,000 admissions/year)**
+
+| ROI Pillar | Value | How |
+| --- | --- | --- |
+| **Fine avoidance** | €203K+ avoided per incident | Average GDPR healthcare fine is €203K per violation (up to €20M or 4% of global revenue). MedFlow's anonymization-first architecture means no raw PII database to breach. |
+| **Staff time savings** | ~€119K/year | 15,000 admissions × 25 min saved per intake × €19/hr avg. nurse salary in Spain = ~6,250 hours redirected to patient care. Nurses currently spend 35% of their time on documentation. |
+| **New revenue stream** | €10–50K+/year | Passive revenue share from anonymized data queries. Pharma companies pay $75K–$5M/year for real-world health datasets. Hospitals monetize data they were already generating. |
+
+**Total estimated value per hospital: €130K–370K+/year on the free tier alone.**
+
+### Pricing Model
+
+MedFlow uses a freemium model to maximize hospital adoption and network growth.
+
+| Tier | Customer | Price | What's Included |
+| --- | --- | --- | --- |
+| **Free** | Hospitals | €0/month | AI intake agent, structured form auto-fill, confidence scoring + clinician routing, full anonymization pipeline, three-layer compliance gate, audit trail, revenue share from research data |
+| **Premium** | Hospitals | SaaS subscription | Everything in Free + deep EHR/HIS integration (HL7 FHIR), custom compliance reporting, advanced analytics dashboard, multi-department deployment, priority support & onboarding, higher revenue share tier |
+
+#### Revenue Streams
+
+| Stream | Customer | Pricing |
+| --- | --- | --- |
+| **Research DB access** | Pharma, biotech, academia | $75K–$5M/year (subscription or per-dataset) |
+| **SaaS premium tier** | Hospitals | €X/month |
+| **Pay-for-performance models** | Pharma + insurers | Variable, per arrangement |
+| **Custom research engagements** | Research institutes | €100K–1M+ per study |
+
+The EHDS is projected to generate €11B in savings over the next decade. MedFlow captures a share by being the infrastructure layer that makes compliant secondary data use possible.
 
 ### Who Pays
 
