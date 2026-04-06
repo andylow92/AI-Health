@@ -36,7 +36,7 @@ A compliance gate validates every anonymized record before it enters the researc
 6. Anonymized record passes through the compliance gate (regex + supervised judge + LLM fallback)
 7. Compliant records enter the research DB; non-compliant records are quarantined and re-anonymized
 8. Every compliance decision is logged to the audit trail
-9. Researcher queries the anonymized DB and gets compliant, structured data
+9. Researcher queries the anonymized DB through the [Phantom Layer](./PHANTOM_LAYER.md) — a virtual filesystem and agent interface that controls access, enforces tier-based permissions, and logs every interaction
 
 ---
 
@@ -182,7 +182,7 @@ Any failure at any layer sends the record to quarantine for re-anonymization.
 | --- | --- |
 | **Patients** | Chat interface for intake |
 | **Clinicians** | Review dashboard for flagged low-confidence cases |
-| **Researchers** | Query interface over the anonymized research database |
+| **Researchers** | [Phantom Layer](./PHANTOM_LAYER.md) — virtual filesystem + AI agent over the anonymized research database |
 
 ---
 
@@ -276,6 +276,7 @@ cd ai-health
 
 ```
 ├── readme.MD                       # This file
+├── PHANTOM_LAYER.md                # Phantom Layer — research access & monetization engine
 ├── formulario_preguntas.md         # Standard Spanish hospital intake form (reference)
 ├── Medflow Architecture V2.svg     # System architecture diagram
 └── PLANNING.md                     # Internal team planning (workstreams, pre-hackathon tasks)
