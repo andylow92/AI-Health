@@ -69,7 +69,9 @@ None of these are real files. Every `ls`, `cat`, or `grep` is intercepted and tr
 
 ### Why a Filesystem?
 
-AI agents are converging on filesystem interfaces as their primary way to interact with data. Commands like browse, read, and search are universal. By presenting our DB as a filesystem:
+This isn't a new idea. Unix's core abstraction was "everything is a file" — devices, sockets, and kernel resources all manipulated through uniform read/write interfaces. That same principle is re-emerging in agentic AI: file-like abstractions and code-based specifications collapse diverse resources into consistent, composable interfaces that are more maintainable, auditable, and operationally robust. Phantom Layer applies this directly — the research DB becomes a filesystem that any agent can navigate with standard operations.
+
+By presenting our DB as a filesystem:
 
 - Any AI agent can navigate it immediately — no custom integration needed
 - Researchers get a familiar mental model (directories and files)
