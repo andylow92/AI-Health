@@ -80,7 +80,7 @@ By presenting our DB as a filesystem:
 
 ### Why Virtual — Not Actual — Files
 
-The data underneath is medical records with relationships: a patient has admissions, each admission has lab results, each lab result has values tied to reference ranges, medications interact with diagnoses. That's inherently relational. A query like *"patients on metformin with HbA1c > 9 who had a cardiac event within 6 months"* is a few JOINs in Postgres. In a real filesystem, that same query means scanning thousands of files and reconstructing relationships in application code — slower, more error-prone, and impossible to optimize.
+The data underneath is medical records with relationships: a patient has admissions, each admission has lab results, each lab result has values tied to reference ranges, medications interact with diagnoses. That's inherently relational. A query like *"patients on metformin with HbA1c > 9 who had a cardiac event within 6 months"* is a few JOINs in Postgres (enabled by [pseudonymous linkage](./PSEUDONYMOUS_LINKAGE.md) that connects records across visits). In a real filesystem, that same query means scanning thousands of files and reconstructing relationships in application code — slower, more error-prone, and impossible to optimize.
 
 The virtual filesystem gives you the **UX of a filesystem** (browsable, searchable, agent-friendly) with the **engine of Postgres underneath** (joins, aggregations, indexes, row-level security). You get both worlds without sacrificing either.
 
