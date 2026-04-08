@@ -36,7 +36,7 @@ A compliance gate validates every anonymized record before it enters the researc
 6. Anonymized record passes through the compliance gate (regex + supervised judge + LLM fallback)
 7. Compliant records enter the research DB; non-compliant records are quarantined and re-anonymized
 8. Every compliance decision is logged to the audit trail
-9. Researcher queries the anonymized DB and gets compliant, structured data
+9. Researcher queries the anonymized DB through the [Phantom Layer](./PHANTOM_LAYER.md) — a virtual filesystem and agent interface that controls access, enforces tier-based permissions, and logs every interaction
 
 ---
 
@@ -133,7 +133,7 @@ MedFlow is the only solution that combines **intake automation + inline anonymiz
 
 Traditional systems store raw patient data and produce anonymized copies on demand. This creates two problems: the raw data is a high-value breach target, and anonymization is an afterthought.
 
-**MedFlow inverts this.** All data is anonymized at the point of intake validation. There is no persistent store of raw patient records.
+**MedFlow inverts this.** All data is anonymized at the point of intake validation. There is no persistent store of raw patient records. For longitudinal research (tracking patient outcomes across visits), MedFlow supports [pseudonymous linkage](./PSEUDONYMOUS_LINKAGE.md) — a one-way hash that connects records without storing any identifiers.
 
 ### What Gets Anonymized
 
@@ -182,7 +182,7 @@ Any failure at any layer sends the record to quarantine for re-anonymization.
 | --- | --- |
 | **Patients** | Chat interface for intake |
 | **Clinicians** | Review dashboard for flagged low-confidence cases |
-| **Researchers** | Query interface over the anonymized research database |
+| **Researchers** | [Phantom Layer](./PHANTOM_LAYER.md) — virtual filesystem + AI agent over the anonymized research database |
 
 ---
 
@@ -276,6 +276,8 @@ cd ai-health
 
 ```
 ├── readme.MD                       # This file
+├── PHANTOM_LAYER.md                # Phantom Layer — research access & monetization engine
+├── PSEUDONYMOUS_LINKAGE.md         # Pseudonymous linkage — how longitudinal research works
 ├── formulario_preguntas.md         # Standard Spanish hospital intake form (reference)
 ├── Medflow Architecture V2.svg     # System architecture diagram
 └── PLANNING.md                     # Internal team planning (workstreams, pre-hackathon tasks)
