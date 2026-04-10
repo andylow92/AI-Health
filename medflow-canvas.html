@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MedFlow – Business Model Canvas</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background: #f0f4f8;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 16px;
+    }
+
+    /* ── Header ─────────────────────────────────────────── */
+    .canvas-header {
+      width: 100%;
+      max-width: 1280px;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .canvas-header h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #0f172a;
+    }
+
+    .canvas-header h1 span {
+      color: #0d9488;
+    }
+
+    .canvas-header .subtitle {
+      font-size: 0.8rem;
+      color: #64748b;
+      text-align: right;
+      line-height: 1.5;
+    }
+
+    /* ── Canvas wrapper ──────────────────────────────────── */
+    .canvas {
+      width: 100%;
+      max-width: 1280px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.09);
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+    }
+
+    /* ── Top section (5 columns) ─────────────────────────── */
+    .canvas-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1.1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      border-bottom: 2px solid #e2e8f0;
+    }
+
+    /* ── Bottom section (2 columns) ─────────────────────── */
+    .canvas-bottom {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    /* ── Shared block styles ─────────────────────────────── */
+    .block {
+      padding: 22px 20px;
+      border-right: 1px solid #e2e8f0;
+      border-bottom: 1px solid #e2e8f0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .block:last-child,
+    .block.no-right-border { border-right: none; }
+
+    .block.no-bottom-border { border-bottom: none; }
+
+    .block-label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #94a3b8;
+    }
+
+    .block-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 2px;
+    }
+
+    .block ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .block ul li {
+      font-size: 0.78rem;
+      color: #475569;
+      line-height: 1.4;
+      padding-left: 12px;
+      position: relative;
+    }
+
+    .block ul li::before {
+      content: "›";
+      position: absolute;
+      left: 0;
+      color: #cbd5e1;
+      font-size: 0.9rem;
+      line-height: 1.3;
+    }
+
+    .block ul li strong {
+      color: #1e293b;
+      font-weight: 600;
+    }
+
+    /* ── Grid placement ──────────────────────────────────── */
+
+    /* Key Partners — col 1, spans 2 rows */
+    .key-partners {
+      grid-column: 1;
+      grid-row: 1 / 3;
+      border-bottom: none;
+    }
+
+    /* Key Activities — col 2, row 1 */
+    .key-activities {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    /* Value Propositions — col 3, spans 2 rows */
+    .value-propositions {
+      grid-column: 3;
+      grid-row: 1 / 3;
+      background: #0d9488;
+      border-right-color: transparent;
+      border-bottom: none;
+    }
+
+    .value-propositions .block-label { color: rgba(255,255,255,0.55); }
+    .value-propositions .block-title { color: #fff; font-size: 1rem; }
+    .value-propositions ul li { color: rgba(255,255,255,0.88); }
+    .value-propositions ul li::before { color: rgba(255,255,255,0.35); }
+    .value-propositions ul li strong { color: #fff; }
+
+    .vp-segment {
+      border-top: 1px solid rgba(255,255,255,0.2);
+      padding-top: 12px;
+      margin-top: 4px;
+    }
+
+    .vp-segment-label {
+      font-size: 0.67rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 6px;
+    }
+
+    /* Customer Relationships — col 4, row 1 */
+    .customer-relationships {
+      grid-column: 4;
+      grid-row: 1;
+    }
+
+    /* Customer Segments — col 5, spans 2 rows */
+    .customer-segments {
+      grid-column: 5;
+      grid-row: 1 / 3;
+      border-right: none;
+      border-bottom: none;
+    }
+
+    /* Key Resources — col 2, row 2 */
+    .key-resources {
+      grid-column: 2;
+      grid-row: 2;
+      border-bottom: none;
+    }
+
+    /* Channels — col 4, row 2 */
+    .channels {
+      grid-column: 4;
+      grid-row: 2;
+      border-bottom: none;
+    }
+
+    /* Cost Structure — col 1, bottom */
+    .cost-structure {
+      grid-column: 1;
+      border-right: 1px solid #e2e8f0;
+      border-bottom: none;
+    }
+
+    /* Revenue Streams — col 2, bottom */
+    .revenue-streams {
+      grid-column: 2;
+      border-bottom: none;
+    }
+
+    /* ── Pill tags ───────────────────────────────────────── */
+    .pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 999px;
+      line-height: 1.3;
+    }
+
+    .pill-teal {
+      background: #ccfbf1;
+      color: #0f766e;
+      border: 1px solid #99f6e4;
+    }
+
+    .pill-teal .pill-price {
+      font-size: 0.65rem;
+      color: #0d9488;
+      font-weight: 700;
+    }
+
+    .pill-gray {
+      background: #f1f5f9;
+      color: #475569;
+      border: 1px solid #e2e8f0;
+    }
+
+    /* ── Stat callouts inside VP block ──────────────────── */
+    .stat-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 8px;
+      flex-wrap: wrap;
+    }
+
+    .stat-chip {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 8px;
+      padding: 6px 10px;
+      text-align: center;
+    }
+
+    .stat-chip .stat-num {
+      font-size: 1rem;
+      font-weight: 800;
+      color: #fff;
+      display: block;
+    }
+
+    .stat-chip .stat-desc {
+      font-size: 0.6rem;
+      color: rgba(255,255,255,0.65);
+      display: block;
+      line-height: 1.3;
+    }
+
+    /* ── Footer / Tagline ────────────────────────────────── */
+    .canvas-footer {
+      width: 100%;
+      max-width: 1280px;
+      margin-top: 14px;
+      padding: 14px 24px;
+      background: #0f172a;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .canvas-footer .tagline {
+      font-size: 0.82rem;
+      color: #94a3b8;
+      line-height: 1.5;
+      flex: 1;
+    }
+
+    .canvas-footer .tagline strong {
+      color: #fff;
+    }
+
+    .canvas-footer .badge {
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: #0d9488;
+      color: #fff;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Header ── -->
+  <div class="canvas-header">
+    <h1>Med<span>Flow</span> <span style="font-weight:300;color:#94a3b8;font-size:1.1rem;"> Business Model Canvas</span></h1>
+    <div class="subtitle">
+      HSIL Hackathon 2026 · Madrid Hub · April 10–11<br>
+      EHDS Infrastructure Layer · EU Regulation (EU) 2025/327
+    </div>
+  </div>
+
+  <!-- ── Canvas ── -->
+  <div class="canvas">
+
+    <!-- TOP SECTION -->
+    <div class="canvas-top">
+
+      <!-- Key Partners -->
+      <div class="block key-partners">
+        <span class="block-label">01</span>
+        <div class="block-title">Key Partners</div>
+        <ul>
+          <li><strong>EU health authorities</strong> — EHDS implementing bodies &amp; regulators</li>
+          <li><strong>Hospital networks</strong> — anchor adopters contributing anonymized records</li>
+          <li><strong>Pharma &amp; biotech</strong> — anchor data buyers ($75K–$5M/year)</li>
+          <li><strong>Academic institutions</strong> — research partners &amp; validation studies</li>
+          <li><strong>Cloud / infra providers</strong> — secure processing environments (Art. 50 EHDS)</li>
+          <li><strong>EHR vendors</strong> — Epic, Cerner (roadmap HL7 FHIR integration)</li>
+          <li><strong>Anthropic</strong> — Claude API (structured LLM output)</li>
+        </ul>
+      </div>
+
+      <!-- Key Activities -->
+      <div class="block key-activities">
+        <span class="block-label">02</span>
+        <div class="block-title">Key Activities</div>
+        <ul>
+          <li>AI-powered conversational patient intake (structured LLM output)</li>
+          <li>Confidence scoring &amp; clinician routing for low-confidence fields</li>
+          <li>Inline anonymization pipeline (spaCy NER + LLM pass)</li>
+          <li>Three-layer compliance gate (regex → judge → LLM fallback)</li>
+          <li>Quarantine &amp; re-anonymization loop for failed records</li>
+          <li>Immutable audit trail logging every compliance decision</li>
+          <li>Hospital onboarding &amp; network growth</li>
+        </ul>
+      </div>
+
+      <!-- Value Propositions (center, full height, teal) -->
+      <div class="block value-propositions">
+        <span class="block-label">03</span>
+        <div class="block-title">Value Propositions</div>
+
+        <div class="vp-segment">
+          <div class="vp-segment-label">For Hospitals (free tier)</div>
+          <ul>
+            <li><strong>Free AI intake automation</strong> — no license cost, no integration fee</li>
+            <li><strong>~€119K/year</strong> in staff time savings (6,250 hours freed)</li>
+            <li><strong>€203K+ fine avoidance</strong> per incident (no raw PII database to breach)</li>
+            <li><strong>New passive revenue</strong> from data already being generated</li>
+          </ul>
+          <div class="stat-row">
+            <div class="stat-chip">
+              <span class="stat-num">€130K–370K</span>
+              <span class="stat-desc">estimated annual value<br>per hospital, free tier</span>
+            </div>
+            <div class="stat-chip">
+              <span class="stat-num">€0/mo</span>
+              <span class="stat-desc">cost to hospitals<br>on free tier</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="vp-segment">
+          <div class="vp-segment-label">For Researchers &amp; Pharma</div>
+          <ul>
+            <li><strong>EHDS-compliant, structured</strong> real-world health data — legally &amp; technically de-risked</li>
+            <li>Access to <strong>450M EU patient records</strong> via multi-hospital DB</li>
+            <li>No raw PII ever stored — audit trail proves compliance to regulators</li>
+            <li>Intake-integrated data: cleaner, more complete than retrospective exports</li>
+          </ul>
+        </div>
+
+        <div class="vp-segment">
+          <div class="vp-segment-label">Core Differentiator</div>
+          <ul>
+            <li>Only solution combining <strong>intake automation + inline anonymization + compliance certification + research monetization</strong> in a single pipeline</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Customer Relationships -->
+      <div class="block customer-relationships">
+        <span class="block-label">04</span>
+        <div class="block-title">Customer Relationships</div>
+        <ul>
+          <li><strong>Freemium</strong> — hospitals adopt free, upgrade to premium SaaS</li>
+          <li><strong>Revenue-share partnership</strong> with hospitals (data contribution → passive income)</li>
+          <li><strong>Self-serve query interface</strong> for researchers</li>
+          <li><strong>Enterprise onboarding</strong> for pharma &amp; large research institutes</li>
+          <li><strong>Continuous feedback loop</strong> — every clinician review trains the compliance judge</li>
+        </ul>
+      </div>
+
+      <!-- Customer Segments -->
+      <div class="block customer-segments no-right-border">
+        <span class="block-label">05</span>
+        <div class="block-title">Customer Segments</div>
+        <ul>
+          <li><strong>Hospitals</strong> — 15,000 EU-27 hospitals; primary adopters (free tier); generate the data supply</li>
+          <li><strong>Pharmaceutical companies</strong> — pay $75K–$5M/year for real-world evidence datasets</li>
+          <li><strong>Biotech firms</strong> — drug development &amp; clinical trial recruitment</li>
+          <li><strong>Academic research institutions</strong> — population health studies, grant-funded research</li>
+          <li><strong>Public health agencies</strong> — outbreak surveillance, chronic disease prevalence, urban health analytics</li>
+          <li><strong>Insurers</strong> — pay-for-performance models (EHDS-validated)</li>
+        </ul>
+      </div>
+
+      <!-- Key Resources -->
+      <div class="block key-resources no-bottom-border">
+        <span class="block-label">06</span>
+        <div class="block-title">Key Resources</div>
+        <ul>
+          <li>AI intake agent (Claude API, structured output)</li>
+          <li>Anonymization engine (spaCy NER + LLM)</li>
+          <li>Supervised compliance judge (BERT / DeBERTa-v3-small)</li>
+          <li>Anonymized multi-hospital research database</li>
+          <li>Immutable audit trail infrastructure</li>
+          <li>EHDS regulatory expertise &amp; legal framework</li>
+        </ul>
+      </div>
+
+      <!-- Channels -->
+      <div class="block channels no-bottom-border">
+        <span class="block-label">07</span>
+        <div class="block-title">Channels</div>
+        <ul>
+          <li>Direct hospital sales &amp; compliance consultations</li>
+          <li>EHDS regulatory compliance pathway (mandated adoption)</li>
+          <li>Research data marketplace &amp; API access</li>
+          <li>Pharma &amp; biotech partnership deals</li>
+          <li>Conference presence (HIMSS, ESMO, health AI venues)</li>
+        </ul>
+      </div>
+
+    </div><!-- /canvas-top -->
+
+    <!-- BOTTOM SECTION -->
+    <div class="canvas-bottom">
+
+      <!-- Cost Structure -->
+      <div class="block cost-structure">
+        <span class="block-label">08</span>
+        <div class="block-title">Cost Structure</div>
+        <div class="pills">
+          <span class="pill pill-gray">LLM API costs (Claude)</span>
+          <span class="pill pill-gray">Cloud infrastructure &amp; compute</span>
+          <span class="pill pill-gray">Data storage &amp; security</span>
+          <span class="pill pill-gray">Compliance judge training &amp; ops</span>
+          <span class="pill pill-gray">Hospital onboarding &amp; support</span>
+          <span class="pill pill-gray">Engineering team</span>
+          <span class="pill pill-gray">Regulatory compliance &amp; legal</span>
+          <span class="pill pill-gray">Anonymization pipeline maintenance</span>
+        </div>
+      </div>
+
+      <!-- Revenue Streams -->
+      <div class="block revenue-streams no-right-border">
+        <span class="block-label">09</span>
+        <div class="block-title">Revenue Streams</div>
+        <div class="pills">
+          <span class="pill pill-teal">Research DB access <span class="pill-price">$75K–$5M / yr</span></span>
+          <span class="pill pill-teal">Custom research engagements <span class="pill-price">€100K–1M+ / study</span></span>
+          <span class="pill pill-teal">SaaS premium tier <span class="pill-price">€X / hospital / mo</span></span>
+          <span class="pill pill-teal">Pay-for-performance <span class="pill-price">variable</span></span>
+          <span class="pill pill-teal">Hospital revenue share <span class="pill-price">retained ‰</span></span>
+        </div>
+      </div>
+
+    </div><!-- /canvas-bottom -->
+
+  </div><!-- /canvas -->
+
+  <!-- ── Footer / Tagline ── -->
+  <div class="canvas-footer">
+    <p class="tagline">
+      <strong>The regulation created the market. We built the infrastructure.</strong>
+      Every hospital intake becomes a compliance-certified research record, automatically.
+      Hospitals get free intake automation and a new revenue stream. Researchers get compliant data.
+    </p>
+    <span class="badge">EHDS · Reg. (EU) 2025/327</span>
+  </div>
+
+</body>
+</html>
